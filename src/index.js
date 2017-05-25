@@ -32,11 +32,11 @@ export default class SignatureCanvas extends Component {
 
   componentDidMount () {
     this._ctx = this._canvas.getContext("2d");
-    this.clear();
 
     this._handleMouseEvents();
     this._handleTouchEvents();
     this._resizeCanvas();
+    this.clear();
   }
 
   componentWillUnmount() {
