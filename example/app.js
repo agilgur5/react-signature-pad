@@ -32,7 +32,7 @@ class App extends Component {
       </div>
       {trimmedDataURL
         ? <img className={styles.sigImage}
-          style={{backgroundImage: 'url(' + trimmedDataURL + ')'}} />
+          src={trimmedDataURL} />
         : null}
     </div>
   }
