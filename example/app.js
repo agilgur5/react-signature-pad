@@ -52,11 +52,13 @@ class NonClearOnResizePage extends Component {
     let {trimmedDataURL} = this.state
     return <div className={styles.container}>
       <p>
-        This canvas will not be clear when the browser resizes,
-        so it's the responsability of the user or the app to clear
+        By setting <code>clearOnResize</code> to <code>false</code>,
+        this canvas will not be cleared when the browser resizes,
+        so it is the responsability of the user or the app to clear
         the canvas if the signature is not visible anymore.
         The dimensions of this canvas are set to "very big"
-        (1000x1000, check the styles file) and the container of the canvas is responsive.
+        (1000x1000, check the styles file) and the container
+        of the canvas is responsive.
         The container will keep the large canvas centered.
       </p>
       <div className={styles.nonClearableContainer}>
