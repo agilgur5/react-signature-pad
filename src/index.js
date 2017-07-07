@@ -60,6 +60,7 @@ export default class SignatureCanvas extends Component {
     let height = this._canvas.height / ratio
 
     this._reset()
+    this._resizeCanvas()
     image.onload = () => this._ctx.drawImage(image, 0, 0, width, height)
     image.src = dataURL
     this._isEmpty = false
