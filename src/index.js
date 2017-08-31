@@ -14,6 +14,7 @@ export default class SignatureCanvas extends Component {
     penColor: PropTypes.string,
     onEnd: PropTypes.func,
     onBegin: PropTypes.func,
+    onCurve: PropTypes.func,
     canvasProps: PropTypes.object
   }
 
@@ -27,6 +28,7 @@ export default class SignatureCanvas extends Component {
     penColor: 'black',
     backgroundColor: 'rgba(0,0,0,0)',
     onEnd: () => {},
+    onCurve: () => {},
     onBegin: () => {}
   }
 
@@ -274,6 +276,7 @@ export default class SignatureCanvas extends Component {
   };
 
   _addCurve = (curve) => {
+    this.props.onCurve(curve);
     var startPoint = curve.startPoint,
         endPoint = curve.endPoint,
         velocity, newWidth;
