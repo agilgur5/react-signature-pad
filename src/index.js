@@ -22,8 +22,8 @@ export default class SignatureCanvas extends Component {
     velocityFilterWeight: 0.7,
     minWidth: 0.5,
     maxWidth: 2.5,
-    dotSize: () => {
-      return (this.props.minWidth + this.props.maxWidth) / 2
+    dotSize: (minWidth, maxWidth) => {
+      return ((minWidth || 0.5) + (maxWidth || 2.5)) / 2
     },
     penColor: 'black',
     onEnd: () => {},
@@ -208,7 +208,10 @@ export default class SignatureCanvas extends Component {
   _strokeDraw = (point) => {
     let ctx = this._ctx
     let dotSize = typeof(this.props.dotSize) === 'function'
-      ? this.props.dotSize()
+      ? this.props.dotSize(
+        this.props.minWidth,
+        this.props.maxWidth
+      )
       : this.props.dotSize
 
     ctx.beginPath();
