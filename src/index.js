@@ -142,6 +142,11 @@ export default class SignatureCanvas extends Component {
     document.addEventListener('touchend', this._handleTouchEnd)
   }
 
+  on = () => {
+    this._handleMouseEvents();
+    this._handleTouchEvents();
+  }
+
   off = () => {
     this._canvas.removeEventListener('mousedown', this._handleMouseDown)
     this._canvas.removeEventListener('mousemove', this._handleMouseMove)
