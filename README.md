@@ -43,7 +43,7 @@ used in drawing. All props are **optional**.
 - `maxWidth` : `number`, default: `2.5`
 - `minDistance`: `number`, default: `5`
 - `dotSize` : `number` or `function`,
-  default: `(minWidth, maxWidth) => (minWidth + maxWidth) / 2`
+  default: `() => (this.minWidth + this.maxWidth) / 2`
 - `penColor` : `string`, default: `'black'`
 - `throttle`: `number`, default: `16`
 
