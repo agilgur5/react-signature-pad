@@ -47,6 +47,7 @@
     "react-dom": "0.14 - 16"
   },
   "dependencies": {
+    "signature_pad": "^2.3.2",
     "trim-canvas": "^0.1.0"
   }
 }
