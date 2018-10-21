@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import SignaturePad from 'signature_pad'
+import SignaturePad from 'signature_pad/dist/signature_pad.js'
 import trimCanvas from 'trim-canvas'
 
 export default class SignatureCanvas extends Component {
