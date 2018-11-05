@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "A signature pad implementation in React",
   "main": "build/index.js",
+  "types": "src/index.d.ts", 
   "scripts": {
     "test": "webpack && npm pack",
     "start": "webpack-dev-server -d --inline --hot",
