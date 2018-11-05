@@ -1,3 +1,6 @@
+
+import * as React from 'react';
+
 // signature_pad's props 
 // (taken from https://github.com/szimek/signature_pad/blob/e2af461bca7ceb7cc5afb8349930908ca19f2f56/src/signature_pad.ts#L23)
 export interface IOptions {
@@ -15,8 +18,8 @@ export interface IOptions {
 
 // props specific to the React wrapper
 export interface SignatureCanvasProps extends IOptions {
-    canvasProps: any;
-    clearOnResize: boolean;
+    canvasProps?: any;
+    clearOnResize?: boolean;
 }
 
 export default class SignatureCanvas extends React.Component<SignatureCanvasProps> {}
