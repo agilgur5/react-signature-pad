@@ -86,7 +86,7 @@ All API methods require a ref to the SignatureCanvas in order to use and are ins
 - `on()`: `void`, rebinds all event handlers
 - `getCanvas()`: `canvas`, returns the underlying canvas ref.
   Allows you to modify the canvas however you want or call methods such as `toDataURL()`
-- `getTrimmedCanvas()`: `canvas`, creates a copy of the canvas and returns a trimmed version of it, with all whitespace removed.
+- `getTrimmedCanvas()`: `canvas`, creates a copy of the canvas and returns a [trimmed version](https://github.com/agilgur5/trim-canvas) of it, with all whitespace removed.
 - `getSignaturePad()`: `SignaturePad`, returns the underlying SignaturePad reference.
 
 The API methods are _mostly_ just wrappers around [`signature_pad`'s API](https://github.com/szimek/signature_pad#api).
