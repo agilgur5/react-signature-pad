@@ -95,13 +95,15 @@ The API methods are _mostly_ just wrappers around [`signature_pad`'s API](https:
 
 ## Example
 
+Have a look at the [`example/`](example/) directory.
+
+This example can be run with:
+
 ```bash
 npm start
 ```
 
-Navigate to [http://localhost:8080/](http://localhost:8080/) in your browser and you should be able to see the signature canvas in action.
-
-The source code for this example is found in the [`example/`](example/) directory.
+followed by navigating to [http://localhost:8080/](http://localhost:8080/) in your browser to view it.
 
 ## [Demo](https://agilgur5.github.io/react-signature-canvas/)
 
