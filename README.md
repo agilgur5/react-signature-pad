@@ -102,3 +102,8 @@ npm start
 Navigate to [http://localhost:8080/](http://localhost:8080/) in your browser and you should be able to see the signature canvas in action.
 
 The source code for this example is found in the [`example/`](example/) directory.
+
+## [Demo](https://agilgur5.github.io/react-signature-canvas/)
+
+[View the live demo here](https://agilgur5.github.io/react-signature-canvas/).
+Hosted via the [`gh-pages` branch](https://github.com/agilgur5/react-signature-canvas/tree/gh-pages), which has a standalone version of the code in [`example/`](example/).
