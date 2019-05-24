@@ -96,7 +96,7 @@ The API methods are _mostly_ just wrappers around [`signature_pad`'s API](https:
 ## Example
 
 ```bash
-$ npm start
+npm start
 ```
 
 Navigate to [http://localhost:8080/](http://localhost:8080/) in your browser and you should be able to see the signature canvas in action.
