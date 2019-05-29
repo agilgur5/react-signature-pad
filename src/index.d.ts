@@ -16,7 +16,7 @@ export interface IOptions {
 
 // props specific to the React wrapper
 export interface SignatureCanvasProps extends IOptions {
-  canvasProps?: any,
+  canvasProps?: React.CanvasHTMLAttributes<object>,
   clearOnResize?: boolean
 }
 
