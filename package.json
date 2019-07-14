@@ -4,6 +4,8 @@
   "description": "A React wrapper component around signature_pad. Unopinionated and heavily updated fork of react-signature-pad",
   "main": "build/index.js",
   "scripts": {
+    "lint": "standard --parser babel-eslint",
+    "lint:fix": "standard --parser babel-eslint --fix",
     "test": "webpack && npm pack",
     "start": "webpack-dev-server -d --inline --hot",
     "dist": "webpack -p --config webpack.production.config.js",
@@ -34,6 +36,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^6.0.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
@@ -42,6 +45,7 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-hot-loader": "^1.2.7",
+    "standard": "^13.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.10.1"
