@@ -1,14 +1,17 @@
 # React Signature Canvas
 
+[//]: # (releases / versioning)
 [![package-json](https://img.shields.io/github/package-json/v/agilgur5/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 [![releases](https://img.shields.io/github/tag-pre/agilgur5/react-signature-canvas.svg)](https://github.com/agilgur5/react-signature-canvas/releases)
 [![commits](https://img.shields.io/github/commits-since/agilgur5/react-signature-canvas/v1.0.2.svg)](https://github.com/agilgur5/react-signature-canvas/commits/master)
 
+[//]: # (downloads)
 [![dt](https://img.shields.io/npm/dt/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 [![dy](https://img.shields.io/npm/dy/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 [![dm](https://img.shields.io/npm/dm/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 [![dw](https://img.shields.io/npm/dw/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 
+[//]: # (status / activity)
 [![build status](https://img.shields.io/travis/agilgur5/react-signature-canvas.svg)](https://travis-ci.org/agilgur5/react-signature-canvas)
 
 [![NPM](https://nodei.co/npm/react-signature-canvas.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/react-signature-canvas)
