@@ -9,7 +9,8 @@
     "test": "npm run dist && npm pack",
     "start": "webpack-dev-server -d --inline --hot",
     "dist": "webpack -p --config webpack.production.config.js",
-    "pub": "npm run dist && npm publish"
+    "pub": "npm run dist && npm publish",
+    "changelog:latest": "bash scripts/changelog.sh"
   },
   "keywords": [
     "react",
@@ -41,6 +42,7 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-2": "^6.13.0",
+    "changelog-maker": "^2.3.0",
     "css-loader": "^0.24.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
