@@ -3,6 +3,10 @@
   "version": "1.0.2",
   "description": "A React wrapper component around signature_pad. Unopinionated and heavily updated fork of react-signature-pad",
   "main": "build/index.js",
+  "files": [
+    "src/",
+    "build/"
+  ],
   "scripts": {
     "lint": "standard --parser babel-eslint",
     "lint:fix": "standard --parser babel-eslint --fix",
