@@ -6,20 +6,24 @@ import SignaturePad from '../src/index.js'
 import styles from './styles.cssm'
 
 class App extends Component {
-  state = {trimmedDataURL: null}
+  state = { trimmedDataURL: null }
+
   sigPad = {}
+
   clear = () => {
     this.sigPad.clear()
   }
+
   trim = () => {
-    this.setState({trimmedDataURL: this.sigPad.getTrimmedCanvas()
-      .toDataURL('image/png')})
+    this.setState({ trimmedDataURL: this.sigPad.getTrimmedCanvas()
+      .toDataURL('image/png') })
   }
+
   render () {
-    let {trimmedDataURL} = this.state
+    const { trimmedDataURL } = this.state
     return <div className={styles.container}>
       <div className={styles.sigContainer}>
-        <SignaturePad canvasProps={{className: styles.sigPad}}
+        <SignaturePad canvasProps={{ className: styles.sigPad }}
           ref={(ref) => { this.sigPad = ref }} />
       </div>
       <div>

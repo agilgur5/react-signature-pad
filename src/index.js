@@ -27,7 +27,7 @@ export default class SignatureCanvas extends Component {
   _sigPad = null
 
   _excludeOurProps = () => {
-    let {canvasProps, clearOnResize, ...sigPadProps} = this.props
+    const { canvasProps, clearOnResize, ...sigPadProps } = this.props
     return sigPadProps
   }
 
@@ -54,7 +54,7 @@ export default class SignatureCanvas extends Component {
   // return a trimmed copy of the canvas
   getTrimmedCanvas = () => {
     // copy the canvas
-    let copy = document.createElement('canvas')
+    const copy = document.createElement('canvas')
     copy.width = this._canvas.width
     copy.height = this._canvas.height
     copy.getContext('2d').drawImage(this._canvas, 0, 0)
@@ -75,18 +75,18 @@ export default class SignatureCanvas extends Component {
   }
 
   _resizeCanvas = () => {
-    let canvasProps = this.props.canvasProps || {}
-    let {width, height} = canvasProps
+    const canvasProps = this.props.canvasProps || {}
+    const { width, height } = canvasProps
     // don't resize if the canvas has fixed width and height
     if (width && height) {
       return
     }
 
-    let canvas = this._canvas
+    const canvas = this._canvas
     /* When zoomed out to less than 100%, for some very strange reason,
       some browsers report devicePixelRatio as less than 1
       and only part of the canvas is cleared then. */
-    let ratio = Math.max(window.devicePixelRatio || 1, 1)
+    const ratio = Math.max(window.devicePixelRatio || 1, 1)
 
     if (!width) {
       canvas.width = canvas.offsetWidth * ratio
@@ -99,7 +99,7 @@ export default class SignatureCanvas extends Component {
   }
 
   render () {
-    let {canvasProps} = this.props
+    const { canvasProps } = this.props
     return <canvas ref={(ref) => { this._canvas = ref }} {...canvasProps} />
   }
 
