@@ -9,6 +9,8 @@
 [![dm](https://img.shields.io/npm/dm/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 [![dw](https://img.shields.io/npm/dw/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 
+[![build status](https://img.shields.io/travis/agilgur5/react-signature-canvas.svg)](https://travis-ci.org/agilgur5/react-signature-canvas)
+
 [![NPM](https://nodei.co/npm/react-signature-canvas.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/react-signature-canvas)
 
 A React wrapper component around [signature_pad](https://github.com/szimek/signature_pad).
