@@ -1,0 +1,6 @@
+language: node_js
+# default is the very old 0.10.48; match local version instead
+node_js: '8.9'
+
+before_script: npm run lint
+script: npm test

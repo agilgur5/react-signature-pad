@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "standard --parser babel-eslint",
     "lint:fix": "standard --parser babel-eslint --fix",
-    "test": "webpack && npm pack",
+    "test": "npm run dist && npm pack",
     "start": "webpack-dev-server -d --inline --hot",
     "dist": "webpack -p --config webpack.production.config.js",
     "pub": "npm run dist && npm publish"
