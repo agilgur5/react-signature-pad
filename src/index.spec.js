@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import React from 'react'
 
 import SignatureCanvas from './index.js'
-import { dotData } from '../test-utils/fixtures.js'
+import { dotData, canvasProps, trimmedSize } from '../test-utils/fixtures.js'
 
 test('mounts canvas and instance properly', () => {
   const wrapper = mount(<SignatureCanvas />)
@@ -83,5 +83,23 @@ describe('SigCanvas wrapper methods return equivalent to SigPad', () => {
     isEmpty = rSigPad.isEmpty()
     expect(isEmpty).toBe(true)
     expect(isEmpty).toBe(sigPad.isEmpty())
+  })
+})
+
+describe('get methods return correct canvases', () => {
+  const instance = mount(
+    <SignatureCanvas canvasProps={canvasProps} />
+  ).instance()
+  instance.fromData(dotData)
+
+  test('getCanvas should return the same underlying canvas', () => {
+    const canvas = instance.getCanvas()
+    expect(instance.toDataURL()).toBe(canvas.toDataURL())
+  })
+
+  test('getTrimmedCanvas should return a trimmed canvas', () => {
+    const trimmed = instance.getTrimmedCanvas()
+    expect(trimmed.width).toBe(trimmedSize.width)
+    expect(trimmed.height).toBe(trimmedSize.height)
   })
 })
