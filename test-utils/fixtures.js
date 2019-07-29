@@ -1,5 +1,5 @@
 // signature_pad options
-export const sigPadOptions = {
+const sigPadOptions = {
   velocityFilterWeight: 0.8,
   minWidth: 0.6,
   maxWidth: 2.6,
@@ -16,10 +16,12 @@ const rSCProps = {
   clearOnResize: false
 }
 // should all be different from the defaults
-export const props = { ...sigPadOptions, ...rSCProps }
+const props = { ...sigPadOptions, ...rSCProps }
+export const propsF = { sigPadOptions, all: props }
 
-export const dotData = [
+const dotData = [
   [{ x: 466.59375, y: 189, time: 1564339579755, color: 'black' }]
 ]
-export const canvasProps = { width: 1011, height: 326 }
-export const trimmedSize = { width: 4, height: 4 }
+const canvasProps = { width: 1011, height: 326 }
+const trimmedSize = { width: 4, height: 4 }
+export const dotF = { data: dotData, canvasProps, trimmedSize }
