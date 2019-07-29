@@ -1,4 +1,4 @@
-import { describe, test, expect } from 'jest'
+import { describe, it, test, expect } from 'jest'
 import { mount } from 'enzyme'
 import React from 'react'
 
@@ -136,12 +136,12 @@ describe('get methods return correct canvases', () => {
 })
 
 // comes after props, wrappers, and gets as it uses them all
-describe('resizing works correctly', () => {
+describe('canvas resizing', () => {
   const wrapper = mount(<SignatureCanvas />)
   const instance = wrapper.instance()
   const canvas = instance.getCanvas()
 
-  test('canvas should clear on resize', () => {
+  it('should clear on resize', () => {
     instance.fromData(dotF.data)
     expect(instance.isEmpty()).toBe(false)
 
@@ -149,7 +149,7 @@ describe('resizing works correctly', () => {
     expect(instance.isEmpty()).toBe(true)
   })
 
-  test('canvas should not clear when clearOnResize is false', () => {
+  it('should not clear when clearOnResize is false', () => {
     wrapper.setProps({ clearOnResize: false })
 
     instance.fromData(dotF.data)
@@ -160,7 +160,7 @@ describe('resizing works correctly', () => {
   })
 
   const size = { width: 100, height: 100 }
-  test('canvas should not change size if fixed width & height', () => {
+  it('should not change size if fixed width & height', () => {
     wrapper.setProps({ canvasProps: size })
     window.resizeTo(500, 500)
 
@@ -168,7 +168,7 @@ describe('resizing works correctly', () => {
     expect(canvas.height).toBe(size.height)
   })
 
-  test('canvas should change size if no width or height', () => {
+  it('should change size if no width or height', () => {
     wrapper.setProps({ canvasProps: {} })
     window.resizeTo(500, 500)
 
@@ -176,7 +176,7 @@ describe('resizing works correctly', () => {
     expect(canvas.height).not.toBe(size.height)
   })
 
-  test('canvas should partially change size if one of width or height', () => {
+  it('should partially change size if one of width or height', () => {
     wrapper.setProps({ canvasProps: { width: size.width } })
     window.resizeTo(500, 500)
 
