@@ -1,4 +1,4 @@
-import { describe, it, test, expect } from 'jest'
+import jest, { describe, it, test, expect } from 'jest'
 import { mount } from 'enzyme'
 import React from 'react'
 
@@ -189,5 +189,35 @@ describe('canvas resizing', () => {
 
     expect(canvas.width).not.toBe(size.width)
     expect(canvas.height).toBe(size.height)
+  })
+})
+
+// comes after wrappers and resizing as it uses both
+describe('on & off methods', () => {
+  const wrapper = mount(<SignatureCanvas />)
+  const instance = wrapper.instance()
+
+  it('should not clear when off, should clear when back on', () => {
+    instance.fromData(dotF.data)
+    expect(instance.isEmpty()).toBe(false)
+
+    instance.off()
+    window.resizeTo(500, 500)
+    expect(instance.isEmpty()).toBe(false)
+
+    instance.on()
+    window.resizeTo(500, 500)
+    expect(instance.isEmpty()).toBe(true)
+  })
+
+  it('should no longer fire after unmount', () => {
+    // monkey-patch on with a mock to tell if it were called, as there's no way
+    // to check what event listeners are attached to window
+    instance._on = instance.on
+    instance.on = jest.fn(instance._on)
+
+    wrapper.unmount()
+    window.resizeTo(500, 500)
+    expect(instance.on).not.toBeCalled()
   })
 })
