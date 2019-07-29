@@ -11,6 +11,7 @@
 [![dw](https://img.shields.io/npm/dw/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 <br><!-- status / activity -->
 [![build status](https://img.shields.io/travis/agilgur5/react-signature-canvas/master.svg)](https://travis-ci.org/agilgur5/react-signature-canvas)
+[![code coverage](https://img.shields.io/codecov/c/gh/agilgur5/react-signature-canvas/master.svg)](https://codecov.io/gh/agilgur5/react-signature-canvas)
 <br>
 [![NPM](https://nodei.co/npm/react-signature-canvas.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/package/react-signature-canvas)
 
