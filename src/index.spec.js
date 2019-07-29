@@ -116,6 +116,7 @@ describe('SigCanvas wrapper methods return equivalent to SigPad', () => {
   })
 })
 
+// comes after props and wrapper methods as it uses both
 describe('get methods return correct canvases', () => {
   const instance = mount(
     <SignatureCanvas canvasProps={dotF.canvasProps} />
@@ -131,5 +132,62 @@ describe('get methods return correct canvases', () => {
     const trimmed = instance.getTrimmedCanvas()
     expect(trimmed.width).toBe(dotF.trimmedSize.width)
     expect(trimmed.height).toBe(dotF.trimmedSize.height)
+  })
+})
+
+// comes after props, wrappers, and gets as it uses them all
+describe('resizing works correctly', () => {
+  const wrapper = mount(<SignatureCanvas />)
+  const instance = wrapper.instance()
+  const canvas = instance.getCanvas()
+
+  test('canvas should clear on resize', () => {
+    instance.fromData(dotF.data)
+    expect(instance.isEmpty()).toBe(false)
+
+    window.resizeTo(500, 500)
+    expect(instance.isEmpty()).toBe(true)
+  })
+
+  test('canvas should not clear when clearOnResize is false', () => {
+    wrapper.setProps({ clearOnResize: false })
+
+    instance.fromData(dotF.data)
+    expect(instance.isEmpty()).toBe(false)
+
+    window.resizeTo(500, 500)
+    expect(instance.isEmpty()).toBe(false)
+  })
+
+  const size = { width: 100, height: 100 }
+  test('canvas should not change size if fixed width & height', () => {
+    wrapper.setProps({ canvasProps: size })
+    window.resizeTo(500, 500)
+
+    expect(canvas.width).toBe(size.width)
+    expect(canvas.height).toBe(size.height)
+  })
+
+  test('canvas should change size if no width or height', () => {
+    wrapper.setProps({ canvasProps: {} })
+    window.resizeTo(500, 500)
+
+    expect(canvas.width).not.toBe(size.width)
+    expect(canvas.height).not.toBe(size.height)
+  })
+
+  test('canvas should partially change size if one of width or height', () => {
+    wrapper.setProps({ canvasProps: { width: size.width } })
+    window.resizeTo(500, 500)
+
+    expect(canvas.width).toBe(size.width)
+    expect(canvas.height).not.toBe(size.height)
+
+    // now do height instead
+    wrapper.setProps({ canvasProps: { height: size.height } })
+    window.resizeTo(500, 500)
+
+    expect(canvas.width).not.toBe(size.width)
+    expect(canvas.height).toBe(size.height)
   })
 })

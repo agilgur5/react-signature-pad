@@ -5,7 +5,9 @@ module.exports = {
   },
   setupFilesAfterEnv: [
     // configure enzyme w/ react adapter
-    '<rootDir>/test-utils/configure-enzyme.js'
+    '<rootDir>/test-utils/configure-enzyme.js',
+    // polyfill window.resizeTo
+    '<rootDir>/test-utils/window-resizeTo.js'
   ],
   transform: {
     // use babel-jest@23 for babel@6 support (https://github.com/facebook/jest/issues/8230#issuecomment-479470547)
