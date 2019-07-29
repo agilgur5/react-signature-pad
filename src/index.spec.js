@@ -161,7 +161,8 @@ describe('canvas resizing', () => {
 
   const size = { width: 100, height: 100 }
   it('should not change size if fixed width & height', () => {
-    wrapper.setProps({ canvasProps: size })
+    // reset clearOnResize back to true after previous test
+    wrapper.setProps({ clearOnResize: true, canvasProps: size })
     window.resizeTo(500, 500)
 
     expect(canvas.width).toBe(size.width)
