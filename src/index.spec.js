@@ -12,13 +12,13 @@ test('mounts canvas and instance properly', () => {
   expect(instance.isEmpty()).toBe(true)
 })
 
-describe('props are set and updated correctly', () => {
-  test('default props should match', () => {
+describe('setting and updating props', () => {
+  it('should set default props', () => {
     const instance = mount(<SignatureCanvas />).instance()
     expect(instance.props).toStrictEqual(SignatureCanvas.defaultProps)
   })
 
-  test('mounted initial props and options should match', () => {
+  it('should set initial mount props and SigPad options', () => {
     const instance = mount(<SignatureCanvas {...propsF.all} />).instance()
     const sigPad = instance.getSignaturePad()
 
@@ -26,7 +26,7 @@ describe('props are set and updated correctly', () => {
     expect(sigPad).toMatchObject(propsF.sigPadOptions)
   })
 
-  test('updated props and options should match', () => {
+  it('should update props and SigPad options', () => {
     const wrapper = mount(<SignatureCanvas />)
     const instance = wrapper.instance()
     const sigPad = instance.getSignaturePad()
@@ -117,7 +117,7 @@ describe('SigCanvas wrapper methods return equivalent to SigPad', () => {
 })
 
 // comes after props and wrapper methods as it uses both
-describe('get methods return correct canvases', () => {
+describe('get methods', () => {
   const instance = mount(
     <SignatureCanvas canvasProps={dotF.canvasProps} />
   ).instance()
