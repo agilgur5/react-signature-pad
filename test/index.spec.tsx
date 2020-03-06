@@ -1,25 +1,29 @@
-import jest, { describe, it, test, expect } from 'jest'
-import { mount } from 'enzyme'
+import { jest, describe, it, test, expect } from 'jest-without-globals'
+import { mount, CommonWrapper } from 'enzyme'
 import React from 'react'
 
-import SignatureCanvas from './index.js'
-import { propsF, dotF } from '../test-utils/fixtures.js'
+import SignatureCanvas from '../src/index'
+import { propsF, dotF } from './fixtures'
+
+function rSCInstance (wrapper: CommonWrapper): SignatureCanvas {
+  return wrapper.instance() as SignatureCanvas
+}
 
 test('mounts canvas and instance properly', () => {
   const wrapper = mount(<SignatureCanvas />)
   expect(wrapper.exists('canvas')).toBe(true)
-  const instance = wrapper.instance()
+  const instance = rSCInstance(wrapper)
   expect(instance.isEmpty()).toBe(true)
 })
 
 describe('setting and updating props', () => {
   it('should set default props', () => {
-    const instance = mount(<SignatureCanvas />).instance()
+    const instance = rSCInstance(mount(<SignatureCanvas />))
     expect(instance.props).toStrictEqual(SignatureCanvas.defaultProps)
   })
 
   it('should set initial mount props and SigPad options', () => {
-    const instance = mount(<SignatureCanvas {...propsF.all} />).instance()
+    const instance = rSCInstance(mount(<SignatureCanvas {...propsF.all} />))
     const sigPad = instance.getSignaturePad()
 
     expect(instance.props).toMatchObject(propsF.all)
@@ -28,7 +32,7 @@ describe('setting and updating props', () => {
 
   it('should update props and SigPad options', () => {
     const wrapper = mount(<SignatureCanvas />)
-    const instance = wrapper.instance()
+    const instance = rSCInstance(wrapper)
     const sigPad = instance.getSignaturePad()
 
     // default props and options should not match new ones
@@ -43,7 +47,7 @@ describe('setting and updating props', () => {
 })
 
 describe('SigCanvas wrapper methods return equivalent to SigPad', () => {
-  const rSigPad = mount(<SignatureCanvas />).instance()
+  const rSigPad = rSCInstance(mount(<SignatureCanvas />))
   const sigPad = rSigPad.getSignaturePad()
 
   test('toData should be equivalent', () => {
@@ -118,9 +122,9 @@ describe('SigCanvas wrapper methods return equivalent to SigPad', () => {
 
 // comes after props and wrapper methods as it uses both
 describe('get methods', () => {
-  const instance = mount(
+  const instance = rSCInstance(mount(
     <SignatureCanvas canvasProps={dotF.canvasProps} />
-  ).instance()
+  ))
   instance.fromData(dotF.data)
 
   test('getCanvas should return the same underlying canvas', () => {
@@ -138,7 +142,7 @@ describe('get methods', () => {
 // comes after props, wrappers, and gets as it uses them all
 describe('canvas resizing', () => {
   const wrapper = mount(<SignatureCanvas />)
-  const instance = wrapper.instance()
+  const instance = rSCInstance(wrapper)
   const canvas = instance.getCanvas()
 
   it('should clear on resize', () => {
@@ -196,7 +200,7 @@ describe('canvas resizing', () => {
 // comes after wrappers and resizing as it uses both
 describe('on & off methods', () => {
   const wrapper = mount(<SignatureCanvas />)
-  const instance = wrapper.instance()
+  const instance = rSCInstance(wrapper)
 
   it('should not clear when off, should clear when back on', () => {
     instance.fromData(dotF.data)
@@ -214,11 +218,27 @@ describe('on & off methods', () => {
   it('should no longer fire after unmount', () => {
     // monkey-patch on with a mock to tell if it were called, as there's no way
     // to check what event listeners are attached to window
-    instance._on = instance.on
-    instance.on = jest.fn(instance._on)
+    const origOn = instance.on
+    instance.on = jest.fn(origOn)
 
     wrapper.unmount()
     window.resizeTo(500, 500)
     expect(instance.on).not.toBeCalled()
+  })
+})
+
+// unmounting comes last
+describe('unmounting', () => {
+  const wrapper = mount(<SignatureCanvas />)
+  const instance = rSCInstance(wrapper)
+
+  it('should error when retrieving instance variables', () => {
+    wrapper.unmount()
+    expect(() => {
+      instance.getCanvas()
+    }).toThrowError(SignatureCanvas.refNullError)
+    expect(() => {
+      instance.getSignaturePad()
+    }).toThrowError(SignatureCanvas.refNullError)
   })
 })

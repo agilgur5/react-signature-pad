@@ -15,6 +15,7 @@
 [![dm](https://img.shields.io/npm/dm/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 [![dw](https://img.shields.io/npm/dw/react-signature-canvas.svg)](https://npmjs.org/package/react-signature-canvas)
 <br><!-- status / activity -->
+[![typings](https://img.shields.io/npm/types/react-signature-canvas.svg)](https://github.com/agilgur5/react-signature-canvas/blob/master/src/index.tsx)
 [![build status](https://img.shields.io/travis/agilgur5/react-signature-canvas/master.svg)](https://travis-ci.org/agilgur5/react-signature-canvas)
 [![code coverage](https://img.shields.io/codecov/c/gh/agilgur5/react-signature-canvas/master.svg)](https://codecov.io/gh/agilgur5/react-signature-canvas)
 <br>
@@ -26,7 +27,7 @@ Originally, this was just an _unopinionated_ fork of [react-signature-pad](https
 Hence the naming difference.
 Nowadays, this repo / library has significantly evolved, introducing new features, fixing various bugs, and now wrapping the upstream `signature_pad` to have its updates and bugfixes baked in.
 
-This fork also allows you to directly pass [props](#props) to the underlying canvas element, has new, documented [API methods](#api) you can use, has new, documented [props](#props) you can pass to it, has a [live demo](https://agilgur5.github.io/react-signature-canvas/), has a [CodeSandbox playground](https://codesandbox.io/s/github/agilgur5/react-signature-canvas/tree/cra-example), and has [100% test coverage](https://codecov.io/gh/agilgur5/react-signature-canvas).
+This fork also allows you to directly pass [props](#props) to the underlying canvas element, has new, documented [API methods](#api) you can use, has new, documented [props](#props) you can pass to it, has a [live demo](https://agilgur5.github.io/react-signature-canvas/), has a [CodeSandbox playground](https://codesandbox.io/s/github/agilgur5/react-signature-canvas/tree/cra-example), has [100% test coverage](https://codecov.io/gh/agilgur5/react-signature-canvas), and is [written in TypeScript](https://github.com/agilgur5/react-signature-canvas/blob/master/src/index.tsx).
 
 ## Installation
 

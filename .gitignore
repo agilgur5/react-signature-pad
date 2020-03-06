@@ -1,10 +1,30 @@
-build/
+### custom ###
+
+# parcel cache
+.cache/
+# build output
+dist/
+# test coverage output
 coverage/
 
+### Node ###
+
+# Logs
+logs
+*.log
 npm-debug.log*
+
+# Dependency directories
 node_modules/
 
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
 *.tgz
 
-.DS_Store
-*~
+# dotenv environment variables file
+.env

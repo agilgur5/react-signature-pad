@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-import SignaturePad from '../src/index.js'
+import SignaturePad from '../../src/index.tsx'
 
-import styles from './styles.cssm'
+import styles from './styles.module.css'
 
 class App extends Component {
   state = { trimmedDataURL: null }
@@ -15,8 +15,9 @@ class App extends Component {
   }
 
   trim = () => {
-    this.setState({ trimmedDataURL: this.sigPad.getTrimmedCanvas()
-      .toDataURL('image/png') })
+    this.setState({
+      trimmedDataURL: this.sigPad.getTrimmedCanvas().toDataURL('image/png')
+    })
   }
 
   render () {
@@ -35,7 +36,7 @@ class App extends Component {
         </button>
       </div>
       {trimmedDataURL
-        ? <img className={styles.sigImage}
+        ? <img className={styles.sigImage} alt='signature'
           src={trimmedDataURL} />
         : null}
     </div>

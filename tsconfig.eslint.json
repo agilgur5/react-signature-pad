@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  // adds test dir to be linted
+  "include": ["src", "typings", "test"]
+}

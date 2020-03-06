@@ -1,3 +1,5 @@
+import SignaturePad from 'signature_pad'
+
 // signature_pad options
 const sigPadOptions = {
   velocityFilterWeight: 0.8,
@@ -21,7 +23,7 @@ export const propsF = { sigPadOptions, all: props }
 
 const dotData = [
   [{ x: 466.59375, y: 189, time: 1564339579755, color: 'black' }]
-]
+] as SignaturePad.Point[][]
 const canvasProps = { width: 1011, height: 326 }
 const trimmedSize = { width: 4, height: 4 }
 export const dotF = { data: dotData, canvasProps, trimmedSize }
